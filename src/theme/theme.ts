@@ -124,6 +124,8 @@ const theme = createTheme({
       lineHeight: '1.25rem',
     },
   },
+
+  spacing: 4,
 });
 
 theme.palette.background.default = theme.palette.info.bg;
