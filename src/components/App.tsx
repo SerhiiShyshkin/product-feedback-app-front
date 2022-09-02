@@ -1,5 +1,9 @@
+import { Box } from '@mui/material';
+
+import { theme } from '../themes';
+
 const App: React.FC = () => {
-  return <div>hello</div>;
+  return <Box sx={{ background: theme.palette.info.live }}>hello</Box>;
 };
 
 export default App;

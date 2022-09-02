@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import { theme } from './theme';
+import { theme } from './themes';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
