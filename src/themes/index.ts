@@ -1,2 +1,2 @@
-import { theme } from './theme';
-export { theme };
+import { theme, contentBoxTheme } from './theme';
+export { theme, contentBoxTheme };

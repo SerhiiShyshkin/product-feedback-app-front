@@ -1,22 +1,24 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
-import App from "./components/App";
-import reportWebVitals from "./reportWebVitals";
-import { theme } from "./themes";
+import App from './components/App';
+import reportWebVitals from './reportWebVitals';
+import { theme, contentBoxTheme } from './themes';
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <ThemeProvider theme={contentBoxTheme}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ThemeProvider>
       </CssBaseline>
     </ThemeProvider>
   </React.StrictMode>

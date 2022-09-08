@@ -1,8 +1,14 @@
 import { createTheme } from '@mui/material';
+import { createTheme as createThemeSystem } from '@mui/system';
+
 import '@fontsource/jost/400.css';
 import '@fontsource/jost/500.css';
 import '@fontsource/jost/600.css';
 import '@fontsource/jost/700.css';
+
+import headerBackgroundMobile from '../assets/suggestions/mobile/background-header.png';
+import headerBackgroundTablet from '../assets/suggestions/tablet/background-header.png';
+import headerBackgroundDesktop from '../assets/suggestions/desktop/background-header.png';
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
@@ -32,7 +38,7 @@ declare module '@mui/material/styles' {
 const theme = createTheme({
   palette: {
     primary: {
-      main: '##3A4374',
+      main: '#3A4374',
       dark: '#373F68',
       light: '#647196',
       hover: '#656EA3',
@@ -130,4 +136,62 @@ const theme = createTheme({
 
 theme.palette.background.default = theme.palette.info.bg;
 
-export { theme };
+const contentBoxTheme = createThemeSystem({
+  components: {
+    ContentBox: {
+      variants: [
+        {
+          props: {
+            variant: 'normal',
+          },
+          style: {
+            backgroundColor: theme.palette.common.white,
+          },
+        },
+        {
+          props: {
+            variant: 'header',
+          },
+          style: {
+            backgroundImage: `url(${headerBackgroundMobile})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+          },
+        },
+        {
+          props: {
+            variant: 'toolbar',
+          },
+          style: {
+            backgroundColor: theme.palette.primary.dark,
+          },
+        },
+      ],
+
+      styleOverrides: {
+        root: {
+          borderRadius: 0,
+        },
+        normal: {
+          borderRadius: '10px',
+        },
+        header: {
+          [theme.breakpoints.up('tablet')]: {
+            backgroundImage: `url(${headerBackgroundTablet})`,
+            borderRadius: '10px',
+          },
+          [theme.breakpoints.up('desktop')]: {
+            backgroundImage: `url(${headerBackgroundDesktop})`,
+          },
+        },
+        toolbar: {
+          [theme.breakpoints.up('tablet')]: {
+            borderRadius: '10px',
+          },
+        },
+      },
+    },
+  },
+});
+
+export { theme, contentBoxTheme };
