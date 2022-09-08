@@ -11,7 +11,7 @@ const SuggetionsPage: React.FC = () => {
       <br />
       <Link to='/roadmap'>roadmap</Link>
 
-      <HeaderBox variant='header' sx={{ height: '50px', width: '100px' }}>
+      <HeaderBox variant='normal' sx={{ height: '50px', width: '100px' }}>
         hello
       </HeaderBox>
     </div>

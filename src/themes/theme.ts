@@ -171,6 +171,10 @@ const contentBoxTheme = createThemeSystem({
       styleOverrides: {
         root: {
           borderRadius: 0,
+          padding: theme.spacing(4, 6),
+          [theme.breakpoints.up('tablet')]: {
+            padding: theme.spacing(6),
+          },
         },
         normal: {
           borderRadius: '10px',
