@@ -5,21 +5,18 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import { theme, contentBoxTheme } from './themes';
+import { theme } from './themes';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <CssBaseline  />
     <ThemeProvider theme={theme}>
-      <CssBaseline>
-        <ThemeProvider theme={contentBoxTheme}>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ThemeProvider>
-      </CssBaseline>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
 );

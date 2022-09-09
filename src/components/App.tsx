@@ -8,11 +8,11 @@ import { EditFeedbackPage } from '../pages/EditFeedbackPage';
 
 import { Layout } from './Layout';
 
-import { AppBackground } from './ui';
+import { Box } from '@mui/material';
 
 const App: React.FC = () => {
   return (
-    <AppBackground>
+    <Box sx={{ bgcolor: 'info.bg', width: '100vw', height: '100vh' }}>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<SuggetionsPage />} />
@@ -22,7 +22,7 @@ const App: React.FC = () => {
           <Route path='roadmap' element={<RoadmapPage />} />
         </Route>
       </Routes>
-    </AppBackground>
+    </Box>
   );
 };
 
