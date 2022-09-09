@@ -1,5 +1,4 @@
-import { createTheme } from '@mui/material';
-import { createTheme as createThemeSystem } from '@mui/system';
+import { createTheme } from '@mui/system';
 
 import '@fontsource/jost/400.css';
 import '@fontsource/jost/500.css';
@@ -15,23 +14,11 @@ declare module '@mui/material/styles' {
     xs: false;
     sm: false;
     md: false;
-    lg: false;
     xl: false;
+    lg: false;
     mobile: true;
     tablet: true;
     desktop: true;
-  }
-
-  interface PaletteColor {
-    hover: string;
-    live: string;
-    bg: string;
-  }
-
-  interface SimplePaletteColorOptions {
-    hover?: string;
-    live?: string;
-    bg?: string;
   }
 }
 
@@ -59,6 +46,9 @@ const theme = createTheme({
       dark: '#D73737',
       main: '#E98888',
       light: '#F49F85',
+    },
+    common: {
+      white: '#FFF',
     },
   },
 
@@ -134,68 +124,63 @@ const theme = createTheme({
   spacing: 4,
 });
 
-theme.palette.background.default = theme.palette.info.bg;
-
-const contentBoxTheme = createThemeSystem({
-  components: {
-    ContentBox: {
-      variants: [
-        {
-          props: {
-            variant: 'normal',
-          },
-          style: {
-            backgroundColor: theme.palette.common.white,
-          },
+theme.components = {
+  ContentBox: {
+    variants: [
+      {
+        props: {
+          variant: 'normal',
         },
-        {
-          props: {
-            variant: 'header',
-          },
-          style: {
-            backgroundImage: `url(${headerBackgroundMobile})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-          },
+        style: {
+          backgroundColor: theme.palette.common.white,
         },
-        {
-          props: {
-            variant: 'toolbar',
-          },
-          style: {
-            backgroundColor: theme.palette.primary.dark,
-          },
+      },
+      {
+        props: {
+          variant: 'header',
         },
-      ],
-
-      styleOverrides: {
-        root: {
-          borderRadius: 0,
-          padding: theme.spacing(4, 6),
-          [theme.breakpoints.up('tablet')]: {
-            padding: theme.spacing(6),
-          },
+        style: {
+          backgroundImage: `url(${headerBackgroundMobile})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
         },
-        normal: {
+      },
+      {
+        props: {
+          variant: 'toolbar',
+        },
+        style: {
+          backgroundColor: theme.palette.primary.dark,
+        },
+      },
+    ],
+    styleOverrides: {
+      root: {
+        borderRadius: 0,
+        padding: theme.spacing(4, 6),
+        [theme.breakpoints.up('tablet')]: {
+          padding: theme.spacing(6),
+        },
+      },
+      normal: {
+        borderRadius: '10px',
+      },
+      header: {
+        [theme.breakpoints.up('tablet')]: {
+          backgroundImage: `url(${headerBackgroundTablet})`,
           borderRadius: '10px',
         },
-        header: {
-          [theme.breakpoints.up('tablet')]: {
-            backgroundImage: `url(${headerBackgroundTablet})`,
-            borderRadius: '10px',
-          },
-          [theme.breakpoints.up('desktop')]: {
-            backgroundImage: `url(${headerBackgroundDesktop})`,
-          },
+        [theme.breakpoints.up('desktop')]: {
+          backgroundImage: `url(${headerBackgroundDesktop})`,
         },
-        toolbar: {
-          [theme.breakpoints.up('tablet')]: {
-            borderRadius: '10px',
-          },
+      },
+      toolbar: {
+        [theme.breakpoints.up('tablet')]: {
+          borderRadius: '10px',
         },
       },
     },
   },
-});
+};
 
-export { theme, contentBoxTheme };
+export { theme };
