@@ -4,7 +4,7 @@ interface ContentBoxProps {
   variant?: 'normal' | 'header' | 'toolbar';
 }
 
-export default styled('div', {
+export const ContentBox = styled('div', {
   shouldForwardProp: (prop) =>
     prop !== 'color' && prop !== 'variant' && prop !== 'sx',
   name: 'ContentBox',
