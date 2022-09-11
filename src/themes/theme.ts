@@ -20,6 +20,21 @@ declare module '@mui/material/styles' {
     tablet: true;
     desktop: true;
   }
+
+  interface TypographyVariants {
+    subtitle: React.CSSProperties;
+  }
+
+  interface TypographyVariantsOptions {
+    subtitle?: React.CSSProperties;
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    subtitle: true;
+    
+  }
 }
 
 const theme = createTheme({
@@ -61,63 +76,36 @@ const theme = createTheme({
   },
 
   typography: {
-    fontFamily: 'Jost',
     h1: {
-      fontSize: '1.5rem',
-      fontWeight: '700',
-      lineHeight: '2.188rem',
-      letterSpacing: '-0.021rem',
+      font: '700 1.125rem/1.626rem Jost',
     },
 
     h2: {
-      fontSize: '1.25rem',
-      fontWeight: '700',
-      lineHeight: '1.813rem',
-      letterSpacing: '-0.016rem',
+      font: '700 1rem/1.445rem Jost',
     },
 
     h3: {
-      fontSize: '1.125rem',
-      fontWeight: '700',
-      lineHeight: '1.625rem',
-      letterSpacing: '-0.016rem',
+      font: '700 0.938rem/1.355rem Jost',
     },
 
     h4: {
-      fontSize: '0.875rem',
-      fontWeight: '700',
-      lineHeight: '1.25rem',
-      letterSpacing: '-0.013rem',
+      font: '700 0.813rem/1.174rem Jost',
     },
 
     body1: {
-      fontSize: '1rem',
-      fontWeight: '400',
-      lineHeight: '1.438rem',
+      font: '400 1rem/1.174rem Jost',
     },
 
     body2: {
-      fontSize: '0.938rem',
-      fontWeight: '400',
-      lineHeight: '1.375rem',
+      font: '600 0.813rem/1.174rem Jost',
     },
 
-    caption: {
-      fontSize: '0.813rem',
-      fontWeight: '600',
-      lineHeight: '1.188rem',
+    subtitle: {
+      font: '500 0.813rem/1.174rem Jost',
     },
 
-    button: {
-      fontSize: '0.813rem',
-      fontWeight: '700',
-      lineHeight: '1.188rem',
-    },
-
-    overline: {
-      fontSize: '0.875rem',
-      fontWeight: '400',
-      lineHeight: '1.25rem',
+    description: {
+      font: '400 0.813rem/1.174rem Jost',
     },
   },
 
