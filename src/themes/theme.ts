@@ -133,6 +133,7 @@ theme.components = {
           backgroundImage: `url(${headerBackgroundMobile})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
+          color: theme.palette.common.white,
         },
       },
       {
@@ -141,6 +142,7 @@ theme.components = {
         },
         style: {
           backgroundColor: theme.palette.primary.dark,
+          color: theme.palette.common.white,
         },
       },
     ],
