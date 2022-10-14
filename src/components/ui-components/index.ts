@@ -1,4 +1,4 @@
+import { ContentBox } from './ContentBox';
+import { InteractiveChip } from './InteractiveChip';
 
-import {ContentBox} from './ContentBox';
-
-export { ContentBox };
+export { ContentBox, InteractiveChip };

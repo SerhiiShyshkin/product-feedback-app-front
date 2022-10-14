@@ -67,7 +67,7 @@ const theme = createTheme({
     info: {
       dark: '#4661E6',
       hover: '#CFD7FF',
-      light: '#F2F4FE',
+      light: '#F2F4FF',
       main: '#7C91F9',
       live: '#62BCFA',
       bg: '#F7F8FD',
@@ -117,7 +117,9 @@ const theme = createTheme({
     },
 
     body2: {
-      font: '600 0.813rem/1.174rem Jost',
+      fontWeight: 600,
+      fontSize: '0.813rem',
+      lineHeight: '1.174rem',
     },
 
     subtitle: {
@@ -152,7 +154,6 @@ theme.components = {
         },
         style: {
           backgroundColor: theme.palette.primary.dark,
-          
           color: theme.palette.common.white,
         },
       },
@@ -168,23 +169,13 @@ theme.components = {
     ],
     styleOverrides: {
       root: {
-        borderRadius: 0,
-        padding: theme.spacing(4, 6),
         [theme.breakpoints.up('tablet')]: {
           padding: theme.spacing(6),
         },
       },
       normal: {
         borderRadius: '10px',
-      },
-      header: {
-        [theme.breakpoints.up('tablet')]: {
-          //backgroundImage: `url(${headerBackgroundTablet})`,
-          borderRadius: '10px',
-        },
-        [theme.breakpoints.up('desktop')]: {
-          //backgroundImage: `url(${headerBackgroundDesktop})`,
-        },
+        padding: theme.spacing(6),
       },
       toolbar: {
         [theme.breakpoints.up('tablet')]: {
@@ -192,6 +183,38 @@ theme.components = {
         },
       },
     },
+  },
+  InteractiveChip: {
+    variants: [
+      {
+        props: {
+          variant: 'normal',
+        },
+        style: {
+          backgroundColor: theme.palette.info.light,
+          color: theme.palette.info.dark,
+        },
+      },
+
+      {
+        props: {
+          variant: 'active',
+        },
+        style: {
+          backgroundColor: theme.palette.info.dark,
+          color: theme.palette.common.white,
+        },
+      },
+
+      {
+        props: {
+          variant: 'loading',
+        },
+        style: {
+          backgroundColor: theme.palette.info.bg,
+        },
+      },
+    ],
   },
 };
 

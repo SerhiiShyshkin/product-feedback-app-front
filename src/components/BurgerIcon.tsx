@@ -1,5 +1,5 @@
 import { useAppSelector, useAppDispatch } from '../hook';
-import { toggleOpen } from '../store/sidebarSlice';
+import { toggleOpen } from '../store/slices/sidebarSlice';
 
 interface BurgerIconProps {
   openIcon: string | undefined;

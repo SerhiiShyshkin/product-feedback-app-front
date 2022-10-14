@@ -1,3 +1,3 @@
 export * from './store';
-export * from './settingsApi';
-export * from './sidebarSlice';
+export * from './services/settingsApi';
+export * from './slices/sidebarSlice';

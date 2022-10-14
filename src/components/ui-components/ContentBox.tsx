@@ -1,6 +1,6 @@
 import { styled } from '@mui/material';
 
-interface ContentBoxProps {
+export interface ContentBoxProps {
   variant?: 'normal' | 'toolbar' | 'loading';
   bg?: string;
 }
@@ -20,4 +20,6 @@ export const ContentBox = styled('div', {
   backgroundImage: `url(${props.bg})`,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
+  borderRadius: 0,
+  padding: props.theme.spacing(4, 6),
 }));
