@@ -8,28 +8,17 @@ import { EditFeedbackPage } from './pages/EditFeedbackPage';
 
 import { Layout } from './components/Layout';
 
-import { Box } from '@mui/material';
-
 const App: React.FC = () => {
   return (
-    <Box
-      sx={{
-        bgcolor: 'info.bg',
-        width: '100vw',
-        height: '100vh',
-        fontFamily: 'Jost',
-      }}
-    >
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<SuggetionsPage />} />
-          <Route path='detail' element={<FeedbackDetailPage />} />
-          <Route path='new' element={<NewFeedbackPage />} />
-          <Route path='edit' element={<EditFeedbackPage />} />
-          <Route path='roadmap' element={<RoadmapPage />} />
-        </Route>
-      </Routes>
-    </Box>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<SuggetionsPage />} />
+        <Route path='detail' element={<FeedbackDetailPage />} />
+        <Route path='new' element={<NewFeedbackPage />} />
+        <Route path='edit' element={<EditFeedbackPage />} />
+        <Route path='roadmap' element={<RoadmapPage />} />
+      </Route>
+    </Routes>
   );
 };
 

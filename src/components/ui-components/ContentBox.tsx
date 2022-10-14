@@ -1,7 +1,8 @@
-import { styled } from '@mui/system';
+import { styled } from '@mui/material';
 
 interface ContentBoxProps {
-  variant?: 'normal' | 'header' | 'toolbar';
+  variant?: 'normal' | 'toolbar' | 'loading';
+  bg?: string;
 }
 
 export const ContentBox = styled('div', {
@@ -12,7 +13,11 @@ export const ContentBox = styled('div', {
   overridesResolver: (props, styles) => [
     styles.root,
     props.variant === 'normal' && styles.normal,
-    props.variant === 'header' && styles.header,
     props.variant === 'toolbar' && styles.toolbar,
+    props.variant === 'loading' && styles.loading,
   ],
-})<ContentBoxProps>(({ theme }) => ({}));
+})<ContentBoxProps>((props) => ({
+  backgroundImage: `url(${props.bg})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+}));

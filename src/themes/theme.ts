@@ -1,15 +1,15 @@
-import { createTheme } from '@mui/system';
+import { createTheme } from '@mui/material';
 
 import '@fontsource/jost/400.css';
 import '@fontsource/jost/500.css';
 import '@fontsource/jost/600.css';
 import '@fontsource/jost/700.css';
 
-import headerBackgroundMobile from '../assets/suggestions/mobile/background-header.png';
-import headerBackgroundTablet from '../assets/suggestions/tablet/background-header.png';
-import headerBackgroundDesktop from '../assets/suggestions/desktop/background-header.png';
-
 declare module '@mui/material/styles' {
+  interface Components {
+    [key: string]: any;
+  }
+
   interface BreakpointOverrides {
     xs: false;
     sm: false;
@@ -30,12 +30,25 @@ declare module '@mui/material/styles' {
     subtitle?: React.CSSProperties;
     description?: React.CSSProperties;
   }
+
+  interface PaletteColor {
+    hover?: string;
+    live?: string;
+    bg?: string;
+  }
+
+  interface SimplePaletteColorOptions {
+    hover?: string;
+    live?: string;
+    bg?: string;
+  }
 }
 
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     subtitle: true;
     description: true;
+    title: true;
   }
 }
 
@@ -66,6 +79,7 @@ const theme = createTheme({
     },
     common: {
       white: '#FFF',
+      black: '#000',
     },
   },
 
@@ -78,6 +92,8 @@ const theme = createTheme({
   },
 
   typography: {
+    fontFamily: 'Jost',
+
     h1: {
       font: '700 1.125rem/1.626rem Jost',
     },
@@ -87,7 +103,9 @@ const theme = createTheme({
     },
 
     h3: {
-      font: '700 0.938rem/1.355rem Jost',
+      fontWeight: 700,
+      fontSize: '0.938rem',
+      lineHeight: '1.355rem',
     },
 
     h4: {
@@ -103,7 +121,9 @@ const theme = createTheme({
     },
 
     subtitle: {
-      font: '500 0.813rem/1.174rem Jost',
+      fontWeight: 500,
+      fontSize: '0.813rem',
+      lineHeight: '1.174rem',
     },
 
     description: {
@@ -125,24 +145,24 @@ theme.components = {
           backgroundColor: theme.palette.common.white,
         },
       },
-      {
-        props: {
-          variant: 'header',
-        },
-        style: {
-          backgroundImage: `url(${headerBackgroundMobile})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          color: theme.palette.common.white,
-        },
-      },
+
       {
         props: {
           variant: 'toolbar',
         },
         style: {
           backgroundColor: theme.palette.primary.dark,
+          
           color: theme.palette.common.white,
+        },
+      },
+
+      {
+        props: {
+          variant: 'loading',
+        },
+        style: {
+          backgroundColor: theme.palette.info.bg,
         },
       },
     ],
@@ -159,11 +179,11 @@ theme.components = {
       },
       header: {
         [theme.breakpoints.up('tablet')]: {
-          backgroundImage: `url(${headerBackgroundTablet})`,
+          //backgroundImage: `url(${headerBackgroundTablet})`,
           borderRadius: '10px',
         },
         [theme.breakpoints.up('desktop')]: {
-          backgroundImage: `url(${headerBackgroundDesktop})`,
+          //backgroundImage: `url(${headerBackgroundDesktop})`,
         },
       },
       toolbar: {

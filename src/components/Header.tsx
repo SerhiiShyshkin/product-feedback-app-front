@@ -1,47 +1,79 @@
-import { Typography, useTheme, useMediaQuery } from '@mui/material';
+import { Typography, styled, Skeleton, useMediaQuery } from '@mui/material';
 import { ContentBox } from './ui-components';
-import { styled } from '@mui/system';
-import hamburgerIcon from '../assets/shared/mobile/icon-hamburger.svg';
-import closeIcon from '../assets/shared/mobile/icon-close.svg';
+import { BurgerIcon } from './BurgerIcon';
+import { useGetHeaderQuery } from '../store';
+import { useNavigate } from 'react-router-dom';
+import { useTheme } from '@mui/system';
 
 const HeaderBox = styled(ContentBox)(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr auto',
   alignItems: 'center',
-
-  [theme.breakpoints.up('tablet')]: {
-    color: 'blue',
-  },
-  [theme.breakpoints.up('desktop')]: {
-    color: 'red',
-  },
 }));
 
-const Title = styled(Typography)(({ theme }) => ({
-  gridColumn: '1/2',
+const Title = styled('span')(({ theme }) => ({
+  cursor: 'pointer',
 }));
 
-const Subtitle = styled(Typography)(({ theme }) => ({
-  gridColumn: '1/2',
+const Subtitle = styled('span')(({ theme }) => ({
+  opacity: '0.75',
+  cursor: 'pointer',
 }));
 
-const HamburgerButton = styled('img')(({ theme }) => ({
+const HamburgerButton = styled('div')(({ theme }) => ({
+  display: 'grid',
   gridColumn: '2/3',
   gridRow: '1/3',
 }));
 
-export const Header: React.FC = () => {
+export const Header = () => {
+  const navigate = useNavigate();
+
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.only('mobile'));
+  const matches = useMediaQuery(
+    theme.breakpoints.between(0, theme.breakpoints.values.tablet)
+  );
+
+  const { data: settings, isLoading } = useGetHeaderQuery();
+
+  const openIcon = settings && settings.openIcon;
+  const closeIcon = settings && settings.closeIcon;
+  const bgImage = settings && settings.bgImage;
+
+  const resetApp = () => navigate(0);
 
   return (
-    <HeaderBox variant='header'>
-      <Title variant='h3'>Frontend Mentor</Title>
-      <Subtitle variant='subtitle' sx={{ opacity: 0.75 }}>
-        Feedback Board
-      </Subtitle>
-
-      {matches && <HamburgerButton src={hamburgerIcon} alt='Hamburger icon' />}
+    <HeaderBox
+      variant={isLoading ? 'loading' : 'toolbar'}
+      bg={isLoading ? undefined : bgImage}
+    >
+      <Typography variant='h3'>
+        {isLoading ? (
+          <Skeleton width={150} />
+        ) : (
+          <Title onClick={resetApp}>{settings && settings.title}</Title>
+        )}
+      </Typography>
+      <Typography variant='subtitle'>
+        {isLoading ? (
+          <Skeleton width={120} />
+        ) : (
+          <Subtitle onClick={resetApp}>
+            {settings && settings.subtitle}
+          </Subtitle>
+        )}
+      </Typography>
+      {matches && (
+        <HamburgerButton>
+          {isLoading ? (
+            <Skeleton>
+              <BurgerIcon openIcon={openIcon} closeIcon={closeIcon} />
+            </Skeleton>
+          ) : (
+            <BurgerIcon openIcon={openIcon} closeIcon={closeIcon} />
+          )}
+        </HamburgerButton>
+      )}
     </HeaderBox>
   );
 };
