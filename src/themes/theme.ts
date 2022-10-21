@@ -97,7 +97,9 @@ const theme = createTheme({
     fontFamily: 'Jost',
 
     h1: {
-      font: '700 1.125rem/1.626rem Jost',
+      fontWeight: 700,
+      fontSize: '1.125rem',
+      lineHeight: '1.626rem',
     },
 
     h2: {
