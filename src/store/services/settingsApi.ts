@@ -8,19 +8,50 @@ type HeaderSettings = {
   bgImage: string;
 };
 
+export type Category = {
+  id: number;
+  name: string;
+  description: string;
+  //extra?: string;
+};
+
+type Feedback = {
+  id: number;
+  title: string;
+  description: string;
+  upvotes: number;
+  category: string;
+  comments: Object[];
+};
+
 export const settingsApi = createApi({
   reducerPath: 'settingsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://192.168.0.136:5000/api/',
+    baseUrl: 'http://localhost:3001/',
   }),
 
   endpoints: (build) => ({
     getHeader: build.query<HeaderSettings, void>({
       query: () => ({
-        url: `settings`,
+        url: `uiSettings`,
+      }),
+    }),
+    getCategories: build.query<Category[], void>({
+      query: () => ({
+        url: `categories`,
+      }),
+    }),
+    getFeedbacks: build.query<Feedback[], string | undefined>({
+      query: (params) => ({
+        url:
+          params !== undefined ? `productRequests${params}` : `productRequests`,
       }),
     }),
   }),
 });
 
-export const { useGetHeaderQuery } = settingsApi;
+export const {
+  useGetHeaderQuery,
+  useGetCategoriesQuery,
+  useGetFeedbacksQuery,
+} = settingsApi;

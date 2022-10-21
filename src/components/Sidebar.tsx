@@ -10,6 +10,7 @@ const SidebarBox = styled('div')(({ theme }) => ({
   gridTemplateRows: 'max-content max-content',
   rowGap: theme.spacing(6),
   maxWidth: '223px',
+  maxHeight: 'auto',
 }));
 
 export const Sidebar = ({ children }: SidebarProps) => {

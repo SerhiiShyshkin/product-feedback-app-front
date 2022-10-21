@@ -302,13 +302,15 @@
   "uiSettings": {
     "title": "Frontend Mentor",
     "subtitle": "Feedback Board",
-    "categories": [
-      { "id": 1, "name": "all", "description": "All", "isDefault": true },
-      { "id": 2, "name": "ui", "description": "UI" },
-      { "id": 3, "name": "ux", "description": "UX" },
-      { "id": 4, "name": "enhancement", "description": "Enhancement" },
-      { "id": 5, "name": "bug", "description": "Bug" },
-      { "id": 6, "name": "feature", "description": "Feature" }
-    ]
-  }
+    "bgImage": "http://192.168.0.136:5000/static/background-header.png",
+    "closeIcon": "http://192.168.0.136:5000/static/mobile/icon-close.svg",
+    "openIcon": "http://192.168.0.136:5000/static/mobile/icon-hamburger.svg"
+  },
+  "categories": [
+    { "id": 2, "name": "ui", "description": "UI" },
+    { "id": 3, "name": "ux", "description": "UX" },
+    { "id": 4, "name": "enhancement", "description": "Enhancement" },
+    { "id": 5, "name": "bug", "description": "Bug" },
+    { "id": 6, "name": "feature", "description": "Feature" }
+  ]
 }

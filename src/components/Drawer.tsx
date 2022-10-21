@@ -12,6 +12,7 @@ const DrawerBackground = styled('div')(({ theme }) => ({
   opacity: '0.5',
   width: '100%',
   minHeight: '100vh',
+  height: '100%',
 }));
 
 const DrawerBox = styled('div')(({ theme }) => ({
@@ -21,7 +22,8 @@ const DrawerBox = styled('div')(({ theme }) => ({
   right: 0,
   padding: '24px',
   minHeight: '100vh',
-  background: theme.palette.info.bg,
+  height: '100%',
+  background: theme.palette.background.default,
 }));
 
 export const Drawer = ({ children }: DrawerProps) => {

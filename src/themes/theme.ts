@@ -70,7 +70,6 @@ const theme = createTheme({
       light: '#F2F4FF',
       main: '#7C91F9',
       live: '#62BCFA',
-      bg: '#F7F8FD',
     },
     error: {
       dark: '#D73737',
@@ -80,6 +79,9 @@ const theme = createTheme({
     common: {
       white: '#FFF',
       black: '#000',
+    },
+    background: {
+      default: '#F7F8FD',
     },
   },
 
@@ -109,7 +111,9 @@ const theme = createTheme({
     },
 
     h4: {
-      font: '700 0.813rem/1.174rem Jost',
+      fontWeight: 700,
+      fontSize: '0.813rem',
+      lineHeight: '1.174rem',
     },
 
     body1: {
@@ -129,7 +133,9 @@ const theme = createTheme({
     },
 
     description: {
-      font: '400 0.813rem/1.174rem Jost',
+      fontWeight: 400,
+      fontSize: '0.813rem',
+      lineHeight: '1.174rem',
     },
   },
 
@@ -192,6 +198,7 @@ theme.components = {
         },
         style: {
           backgroundColor: theme.palette.info.light,
+
           color: theme.palette.info.dark,
         },
       },
@@ -211,7 +218,7 @@ theme.components = {
           variant: 'loading',
         },
         style: {
-          backgroundColor: theme.palette.info.bg,
+          backgroundColor: theme.palette.grey,
         },
       },
     ],
